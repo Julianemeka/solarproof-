@@ -39,6 +39,8 @@ jobs:
         run: cargo fmt --all -- --check
         working-directory: apps/contracts
 
+      # Clippy lint gate: enforces -D warnings so all clippy diagnostics are
+      # treated as errors. Required by issue #58 — new PRs must pass this check.
       - name: Clippy
         run: cargo clippy --all-targets --all-features -- -D warnings
         working-directory: apps/contracts
